@@ -1,11 +1,17 @@
 une fois dans la VM Ubuntu, 
 ouvvrir le terminal et éxecuter ces commandes :
   sudo mkdir -p /mnt/share
+  
   sudo mount -t 9p -o trans=virtio share /mnt/share
+  
   cp -r /mnt/share ~/ProjetSE
+  
   sudo apt update
+  
   sudo apt install -y g++ make python3 python3-pip
+  
   pip3 install flask
+  
 
 
   cd ~/ProjetSE
