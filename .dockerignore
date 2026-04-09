@@ -1,0 +1,31 @@
+# Fichiers et dossiers à exclure de l'image Docker pour qu'elle reste légère
+
+# L'exécutable compilé sera reconstruit dans le conteneur, on n'a pas besoin
+# de copier celui compilé sur la machine hôte (qui pourrait même être
+# incompatible avec l'architecture du conteneur)
+daemon
+
+# Fichiers d'index qui sont régénérés automatiquement par le daemon
+sensor/index/*.idx
+
+# Les FIFOs ne doivent jamais être copiés dans l'image, ils sont créés
+# dynamiquement à l'exécution
+fifos/
+
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Fichiers système macOS qui traînent parfois
+.DS_Store
+
+# Fichiers Git
+.git/
+.gitignore
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*~
