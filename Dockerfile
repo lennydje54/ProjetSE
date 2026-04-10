@@ -1,10 +1,6 @@
-# =============================================================================
-# Dockerfile — WEBS (Visionneuse Web de Données de Santé)
-#
 # Ce Dockerfile construit une image Ubuntu contenant tout ce qu'il faut pour
 # faire tourner l'application : le compilateur C++ pour builder le daemon,
 # Python et Flask pour le serveur web, et tout le code source du projet.
-# =============================================================================
 
 # On part d'une image Ubuntu 22.04 pour respecter les contraintes du projet
 # (Ubuntu 18.04, 20.04 ou 22.04 selon le cahier des charges)
@@ -39,7 +35,7 @@ RUN make
 # pour la communication entre le daemon C++ et le serveur Flask
 RUN mkdir -p /app/fifos
 
-# Le serveur Flask écoute sur le port 5000, on l'expose au monde extérieur
+# Le serveur Flask écoute sur le port 5000
 EXPOSE 5000
 
 # Commande de démarrage : on lance le serveur Flask qui se chargera

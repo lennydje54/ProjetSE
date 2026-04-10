@@ -57,7 +57,6 @@ def fifo_reader(session_key):
 
     fifo_path = session['fifo_path']
 
-    max_buffer = 200
 
     try:
         # On ouvre le FIFO en lecture
@@ -89,10 +88,6 @@ def fifo_reader(session_key):
                         if session_key in sessions:
                             buf = sessions[session_key]['data_buffer']
                             buf.append(data_point)
-                            # Si le buffer dépasse la taille max, on ne garde que
-                            # les données les plus récentes
-                            if len(buf) > max_buffer:
-                                sessions[session_key]['data_buffer'] = buf[-max_buffer:]
                 except (ValueError, IndexError):
                     pass
 

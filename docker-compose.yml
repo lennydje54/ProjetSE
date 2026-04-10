@@ -1,10 +1,7 @@
-# =============================================================================
-# docker-compose.yml — Configuration pour lancer WEBS en une seule commande
-#
+# docker-compose.yml : Configuration pour lancer WEBS en une seule commande
 # Ce fichier permet de construire et démarrer l'application avec une seule
 # commande "docker compose up" au lieu de devoir taper les commandes docker
 # build et docker run séparément.
-# =============================================================================
 
 services:
   webs:
@@ -12,19 +9,19 @@ services:
     # le dossier courant
     build: .
 
-    # On donne un nom explicite au conteneur pour le retrouver facilement
+    # On donne un nom clair au conteneur pour le retrouver facilement
     container_name: webs-app
 
     # On mappe le port 5000 du conteneur vers le port 5001 de la machine hôte.
-    # On utilise 5001 côté hôte car sur macOS le port 5000 est souvent occupé
-    # par AirPlay Receiver. Si tu veux revenir à 5000, il faut d'abord désactiver
+    # On utilise 5001 côté hôte car sur macOS le port 5000 est occupé
+    # par AirPlay Receiver. Pour revenir à 5000, il faut désactiver
     # AirPlay Receiver dans Réglages Système > Général > Partage.
     ports:
       - "5001:5000"
 
     # On monte le dossier sensor/ en volume pour que les modifications apportées
     # aux données CSV (ou aux fichiers d'index) soient persistantes et visibles
-    # depuis l'extérieur du conteneur. Très pratique pour développer.
+    # depuis l'extérieur du conteneur.
     volumes:
       - ./sensor:/app/sensor
 
